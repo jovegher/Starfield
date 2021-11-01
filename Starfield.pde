@@ -35,7 +35,7 @@ class Star
     myAngle = ((double)(Math.random()*15)-7)*Math.cos(3);
     xSize = 2;
     ySize = 2;
-  }
+  } 
   void show()
   {
     int rand = (int)(Math.random()*8);
@@ -63,20 +63,27 @@ class Star
   {
     myX = myX + (float)(Math.random()*mySpeed);
     myY = myY + (float)(Math.random()*myAngle);
+    if (mousePressed == true && mouseButton == LEFT) {
+      mySpeed = ((double)(Math.random()*21)-10)*Math.sin(7);
+    }
+    if (mousePressed == true && mouseButton == RIGHT) {
+      mySpeed = ((double)(Math.random()*21)-10)*Math.cos(11);
+    }
+    if (keyPressed == true && key == 'c') {
+      mySpeed = ((double)(Math.random()*21)-10)*Math.asin(11) + 3.14/2;
+    }
     if (keyPressed == true && key == 'r') {
       background(0);
       myX = 250;
       myY = 250;
       mySpeed = ((double)(Math.random()*15)-7)*Math.sin(3);
-    } else if (mousePressed == true && mouseButton == LEFT) {
-      mySpeed = ((double)(Math.random()*21)-10)*Math.sin(7);
-    } else if (mousePressed == true && mouseButton == RIGHT) {
-      mySpeed = ((double)(Math.random()*21)-10)*Math.cos(11);
     }
   }
 }
-  class specialPlanet extends Star {
-    specialPlanet() {
+  class specialPlanet extends Star 
+  {
+    specialPlanet() 
+    {
       myX = (float)(Math.random()*50)+200;
       myY = (float)(Math.random()*50)+200;
       myColor = color((int)(Math.random()*70+170), (int)(Math.random()*90+150), (int)(Math.random()*60+180));
