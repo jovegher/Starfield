@@ -1,11 +1,12 @@
 Star[] centauri;
 void setup()
 {
-  centauri = new Star[2500];
-  size (500, 500);
+  frameRate(144);
+  centauri = new Star[3500];
+  size (1000, 1000);
   for (int i = 0; i < centauri.length; i++) {
     centauri[i] = new specialPlanet();
-    for (int k = 250; k < centauri.length; k++) {
+    for (int k = 350; k < centauri.length; k++) {
       centauri[k] = new Star();
     }
   }
@@ -13,7 +14,7 @@ void setup()
 void draw()
 {
   fill(50, 50, 50, 10);
-  rect(0, 0, 500, 500);
+  rect(0, 0, 1000, 1000);
   background(0);
   for (int i = 0; i < centauri.length; i++) {
     centauri[i].move();
@@ -29,7 +30,7 @@ class Star
   int xSize, ySize;
   Star()
   {
-    myX = myY = 250;
+    myX = myY = 500;
     myColor = color((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
     mySpeed = ((double)(Math.random()*15)-7)*Math.sin(3);
     myAngle = ((double)(Math.random()*15)-7)*Math.cos(3);
@@ -70,12 +71,17 @@ class Star
       mySpeed = ((double)(Math.random()*21)-10)*Math.cos(11);
     }
     if (keyPressed == true && key == 'c') {
-      mySpeed = ((double)(Math.random()*21)-10)*Math.asin(11) + 3.14/2;
+      mySpeed = ((double)(Math.random()*21)-10)*Math.sin(11) + 3.14/2;
+      myAngle = ((double)(Math.random()*21)-10)*Math.sin(11) + 3.14/2;
+    }
+    if (keyPressed == true && key == 'f') {
+      mySpeed = ((double)(Math.random()*21)-10)*Math.tan(5);
+      myAngle = ((double)(Math.random()*21)-10)*Math.tan(5);
     }
     if (keyPressed == true && key == 'r') {
       background(0);
-      myX = 250;
-      myY = 250;
+      myX = 500;
+      myY = 500;
       mySpeed = ((double)(Math.random()*15)-7)*Math.sin(3);
     }
   }
@@ -84,7 +90,7 @@ class Star
   {
     specialPlanet() 
     {
-      myX = (float)(Math.random()*50)+200;
+      myX = (float)(Math.random()*50)+450;
       myY = (float)(Math.random()*50)+200;
       myColor = color((int)(Math.random()*70+170), (int)(Math.random()*90+150), (int)(Math.random()*60+180));
       mySpeed = ((double)(Math.random()*5)-2)*Math.sin(4);
