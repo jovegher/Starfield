@@ -90,8 +90,8 @@ class Star
   {
     specialPlanet() 
     {
-      myX = (float)(Math.random()*50)+450;
-      myY = (float)(Math.random()*50)+200;
+      myX = (float)(Math.random()*50)+500;
+      myY = (float)(Math.random()*50)+500;
       myColor = color((int)(Math.random()*70+170), (int)(Math.random()*90+150), (int)(Math.random()*60+180));
       mySpeed = ((double)(Math.random()*5)-2)*Math.sin(4);
       myAngle = ((double)(Math.random()*5)-2)*Math.cos(4);
